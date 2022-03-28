@@ -3,7 +3,9 @@ package de.bitgrip.mapstruct.example.mapper;
 import de.bitgrip.mapstruct.example.mapper.config.CarMapperConfig;
 import de.bitgrip.mapstruct.example.model.source.Car;
 import de.bitgrip.mapstruct.example.model.dest.CarDTO;
+import org.mapstruct.DecoratedWith;
 import org.mapstruct.InheritConfiguration;
+import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
 
 /**
@@ -13,7 +15,8 @@ import org.mapstruct.Mapper;
  * (c) bitgrip GmbH, 2018
  * </p>
  */
-@Mapper(config = CarMapperConfig.class)
+@Mapper(config = CarMapperConfig.class, injectionStrategy = InjectionStrategy.FIELD)
+@DecoratedWith(CarMapperDecorator.class)
 public abstract class CarMapper {
 
   @InheritConfiguration(name = "mapVehicle")
