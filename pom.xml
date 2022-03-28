@@ -65,6 +65,71 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>de.elnarion.maven</groupId>
+        <artifactId>plantuml-generator-maven-plugin</artifactId>
+        <version>1.3.0</version>
+        <executions>
+          <execution>
+            <id>generate-mapperconfig-diagram</id>
+            <phase>generate-test-sources</phase>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <configuration>
+              <outputFilename>mapper-config.puml</outputFilename>
+              <maxVisibilityMethods>PUBLIC</maxVisibilityMethods>
+              <scanPackages>
+                <scanPackage>de.bitgrip.mapstruct.example.mapper.config</scanPackage>
+              </scanPackages>
+              <hideMethods>true</hideMethods>
+            </configuration>
+          </execution>
+          <execution>
+            <id>generate-mapper-diagram</id>
+            <phase>generate-test-sources</phase>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <configuration>
+              <outputFilename>mappers.puml</outputFilename>
+              <addJPAAnnotations>true</addJPAAnnotations>
+              <maxVisibilityMethods>PUBLIC</maxVisibilityMethods>
+              <whitelistRegexp>.*Mapper</whitelistRegexp>
+            </configuration>
+          </execution>
+          <execution>
+            <id>generate-modes-dest-diagram</id>
+            <phase>generate-test-sources</phase>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <configuration>
+              <outputFilename>model-dest.puml</outputFilename>
+              <addJPAAnnotations>true</addJPAAnnotations>
+              <maxVisibilityMethods>PUBLIC</maxVisibilityMethods>
+              <scanPackages><package>de.bitgrip.mapstruct.example.model.dest</package></scanPackages>
+              <hideMethods>true</hideMethods>
+
+            </configuration>
+          </execution>
+          <execution>
+            <id>generate-modes-source-diagram</id>
+            <phase>generate-test-sources</phase>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <configuration>
+              <outputFilename>model-source.puml</outputFilename>
+              <addJPAAnnotations>true</addJPAAnnotations>
+              <maxVisibilityMethods>PUBLIC</maxVisibilityMethods>
+              <scanPackages><package>de.bitgrip.mapstruct.example.model.source</package></scanPackages>
+              <hideMethods>true</hideMethods>
+              <blacklistRegexp>.*Builder</blacklistRegexp>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 
