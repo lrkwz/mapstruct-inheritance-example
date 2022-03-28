@@ -84,31 +84,18 @@
         <version>1.3.0</version>
         <executions>
           <execution>
-            <id>generate-mapperconfig-diagram</id>
-            <phase>generate-test-sources</phase>
-            <goals>
-              <goal>generate</goal>
-            </goals>
-            <configuration>
-              <outputFilename>mapper-config.puml</outputFilename>
-              <maxVisibilityMethods>PUBLIC</maxVisibilityMethods>
-              <scanPackages>
-                <scanPackage>de.bitgrip.mapstruct.example.mapper.config</scanPackage>
-              </scanPackages>
-              <hideMethods>true</hideMethods>
-            </configuration>
-          </execution>
-          <execution>
-            <id>generate-mapper-diagram</id>
+            <id>generate-mappers-diagram</id>
             <phase>generate-test-sources</phase>
             <goals>
               <goal>generate</goal>
             </goals>
             <configuration>
               <outputFilename>mappers.puml</outputFilename>
-              <addJPAAnnotations>true</addJPAAnnotations>
               <maxVisibilityMethods>PUBLIC</maxVisibilityMethods>
-              <whitelistRegexp>.*Mapper</whitelistRegexp>
+              <scanPackages>
+                <scanPackage>de.bitgrip.mapstruct.example.mapper</scanPackage>
+              </scanPackages>
+              <hideMethods>true</hideMethods>
             </configuration>
           </execution>
           <execution>
@@ -123,7 +110,6 @@
               <maxVisibilityMethods>PUBLIC</maxVisibilityMethods>
               <scanPackages><package>de.bitgrip.mapstruct.example.model.dest</package></scanPackages>
               <hideMethods>true</hideMethods>
-
             </configuration>
           </execution>
           <execution>
